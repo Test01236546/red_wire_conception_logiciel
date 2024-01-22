@@ -1,4 +1,12 @@
-import datetime as dt
+from datetime import datetime
+import pytz
 
-current_date = dt.datetime.now()
-current_date
+timezone_paris = pytz.timezone('Europe/Paris')
+timezone_reunion = pytz.timezone('Indian/Reunion')
+
+def get_date_formatted(timezone):
+    date = datetime.now(timezone)
+    return date.strftime("%H:%M:%S")
+
+print(get_date_formatted(timezone_paris))
+print(get_date_formatted(timezone_reunion))
